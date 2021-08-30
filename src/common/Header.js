@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './common.css';
 import Modal from 'react-modal';
 import Button from '@material-ui/core/Button';
@@ -17,8 +17,9 @@ Modal.setAppElement('#root');
 const Header = function (props) {
 
     const [modalIsOpen, setIsOpen] = React.useState(false);
-    const [loggedIn, setLoggedIn] = React.useState(false);
     const [selectedTab, setTab] = React.useState(0);
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 
     function openModal() {
         setIsOpen(true);
@@ -36,21 +37,74 @@ const Header = function (props) {
     };
 
 
+    async function login(username, password) {
+        const param = window.btoa(`${username}:${password}`);
+        try {
+            const rawResponse = await fetch(props.baseUrl + "auth/login", {
+                method: 'POST',
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json;charset=UTF-8",
+                    authorization: `Basic ${param}`
+                }
+            });
+
+            const result = await rawResponse.json();
+
+            if (rawResponse.ok) {
+                console.log(result);
+                props.setLoggedIn(true);
+                setUsername(username);
+                setPassword(password);
+                closeModal();
+            }
+
+            else {
+                const error = new Error();
+                error.message = result.message || 'Something went wrong.';
+            }
+        }
+
+        catch (e) {
+            alert(`Error: ${e.message}`);
+        }
+    }
+
+
+    function logout() {
+
+                console.log("Logging Out.....");
+                props.setLoggedIn(false);
+                setUsername("");
+                setPassword("");
+                
+                window.location = "http://localhost:3000/";
+    }
+
     return (
         <div>
             <div className="header">
                 <img className="logo" src={require('../assets/logo.svg')} alt='logo' />
 
+                {
+                    <div>
+                        {!props.loggedIn &&
+                            <Button variant="contained" color="default" className="button" onClick={openModal}>
+                                LOGIN
+                            </Button>}
 
-                <Button variant="contained" color="default" className="button" onClick={openModal}>
-                    LOGIN
-                </Button>
+                        {props.loggedIn &&
+                            <Button variant="contained" color="default" className="button" onClick={logout}>
+                                LOGOUT
+                            </Button>}
+                    </div>
 
+                }
 
-                {   props.showBookMovieButton &&
+                {props.showBookMovieButton &&
                     <div className="button">
                         {
-                            loggedIn &&
+                            props.loggedIn &&
                             <Link to="/bookshow/:id">
                                 <Button variant="contained" color="primary">
                                     BOOK SHOW
@@ -58,7 +112,7 @@ const Header = function (props) {
                             </Link>}
 
                         {
-                            !loggedIn &&
+                            !props.loggedIn &&
                             <Button variant="contained" color="primary" onClick={openModal}>
                                 BOOK SHOW
                             </Button>
@@ -91,9 +145,9 @@ const Header = function (props) {
                         <Tab label="Register" />
                     </Tabs>
 
-                    {selectedTab === 0 && <LoginTab />}
+                    {selectedTab === 0 && <LoginTab baseUrl={props.baseUrl} onClickHandler={login} />}
 
-                    {selectedTab === 1 && <RegisterTab />}
+                    {selectedTab === 1 && <RegisterTab baseUrl={props.baseUrl} />}
 
                 </Paper>
             </Modal>

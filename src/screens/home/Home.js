@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/styles";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
 import GridListTile from "@material-ui/core/GridListTile";
 import './Home.css';
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from '../../common/Header';
 import FilteredMovies from "./FilteredMovies";
 
@@ -18,11 +17,13 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Home = function (props) {
+
     const classes = useStyles();
+
     return (
         <div>
             <div>
-                <Header showBookMovieButton={false}/>
+                <Header showBookMovieButton={false} baseUrl={props.baseUrl} loggedIn={props.loggedIn} setLoggedIn={props.setLoggedIn}/> 
                 </div>
             <div className="redheader">
                 <center><span className="heading"><strong>Upcoming Movies</strong></span></center>

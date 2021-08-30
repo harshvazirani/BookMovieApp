@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../../common/common.css';
 import { makeStyles } from '@material-ui/core/styles/';
 import Card from "@material-ui/core/Card";
@@ -7,13 +7,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import FormControl from '@material-ui/core/FormControl';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import { Link, useHistory } from 'react-router-dom';
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
-import { Select } from '@material-ui/core';
 import { InputLabel, Input, Checkbox } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
@@ -52,17 +46,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function FilterMovies() {
-
-    const [currency, setCurrency] = React.useState('EUR');
-
-    const handleChange = (event) => {
-        setCurrency(event.target.value);
-    };
-
-    const handleChangeCheckbox = (event) => {
-
-    };
+export default function MovieFilter() {
 
     const classes = useStyles();
 
@@ -78,24 +62,9 @@ export default function FilterMovies() {
                         </FormControl>
                     </div>
                     <div>
-
-                        {/* <FormControl component="fieldset" className={classes.formControl}>
-
-                            <FormGroup>
-                                <FormControlLabel
-                                    control={<Checkbox checked={gilad} onChange={handleChange} name="gilad" />}
-                                    label="Gilad Gray"
-                                />
-                            </FormGroup>
-
-                        </FormControl>
-                        <FormControl required error={error} component="fieldset" className={classes.formControl}>
-
-                        </FormControl> */}
-
                         <Autocomplete
                             multiple
-                            id="checkboxes-tags-demo"
+                            id="genres"
                             className={classes.component}
                             options={currencies}
                             disableCloseOnSelect
@@ -121,7 +90,7 @@ export default function FilterMovies() {
                     <div>
                     <Autocomplete
                             multiple
-                            id="checkboxes-tags-demo"
+                            id="artists"
                             className={classes.component}
                             options={currencies}
                             disableCloseOnSelect
@@ -150,7 +119,7 @@ export default function FilterMovies() {
                                 id="date"
                                 label="Release Date Start"
                                 type="date"
-                                defaultValue="dd-mm-yyyy"
+                                defaultValue="yyyy-MM-dd"
                                 className={classes.textField}
                                 InputLabelProps={{
                                     shrink: true,
@@ -164,7 +133,7 @@ export default function FilterMovies() {
                                 id="date"
                                 label="Release Date End"
                                 type="date"
-                                defaultValue="dd-mm-yyyy"
+                                defaultValue="yyyy-MM-dd"
                                 className={classes.textField}
                                 InputLabelProps={{
                                     shrink: true,

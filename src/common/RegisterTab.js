@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
 import './common.css';
 import Button from '@material-ui/core/Button';
-import { Link,useHistory } from 'react-router-dom';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import Typography from '@material-ui/core/typography';
 
-const onClickHandler = function () { }
-const onFormSubmitted = function () { }
 
-
-const RegisterTab = function () {
+const RegisterTab = function (props) {
     const [firstname, setFirstname] = useState("");
     const [lastname, setLastname] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [phone, setPhone] = useState("");
 
-    const history=useHistory();
+    const [registered, setRegistered] = useState(false);
 
     const firstnameChangedHandler = function (e){        
         setFirstname(e.target.value); 
@@ -37,6 +33,53 @@ const RegisterTab = function () {
     const phoneChangedHandler = function (e){        
         setPhone(e.target.value); 
     }
+    
+    function formSubmit(){}
+
+
+    async function onFormSubmitted(){
+   
+        var details = {
+            email_address: email,
+            first_name: firstname,
+            last_name: lastname,
+            mobile_number: phone,
+            password: password
+          }
+    
+    
+            try {
+                const rawResponse = await fetch(props.baseUrl + "signup", {
+                    method: 'POST',
+                    body: JSON.stringify(details),
+                    headers: {
+                        "Accept": "application/json",
+                        "Content-Type": "application/json;charset=UTF-8"
+                    }
+                });
+    
+    
+                if (rawResponse.ok) {
+                    const response = await rawResponse.json();
+                    console.log(response);
+                    if(response.status === "ACTIVE") setRegistered(true);
+                } 
+                
+                
+                else {
+                    const error = new Error();
+                    error.message = 'Registeration Unsuccessfull. Something went wrong.';
+                    throw error;
+                }
+            } 
+            
+            
+            catch(e) {
+                alert(e.message);
+            }
+         
+    }
+
 
     return (
 
@@ -45,7 +88,7 @@ const RegisterTab = function () {
 
             <br /><br />
 
-            <ValidatorForm className="subscriber-form center-field" onSubmit={onFormSubmitted}>
+            <ValidatorForm className="subscriber-form center-field" onSubmit={formSubmit}>
                 <div className="center-div">
                 <TextValidator
                     id="firstname"
@@ -85,7 +128,7 @@ const RegisterTab = function () {
                     name="email"
                     onChange={emailChangedHandler}
                     value={email}
-                    validators={['required']}
+                    validators={['required', 'isEmail']}
                     errorMessages={['required']}
                 >
                 </TextValidator>
@@ -121,12 +164,17 @@ const RegisterTab = function () {
                 </div>
                 <br /><br />
                 
-                {<div><Typography>Registration Successful. Please Login!</Typography></div>}
+                {
+                   registered &&
+                   <div><Typography>Registration Successful. Please Login!</Typography></div>
+                
+                }
+
                 <br /><br /> 
                  
                 <div className = 'center'>
                    
-                <Button variant="contained" color="primary" type="submit">
+                <Button variant="contained" color="primary" type="submit" onClick={onFormSubmitted}>
                     Register
                 </Button>
                 <br /><br />

@@ -100,7 +100,7 @@ const Confirmation = (props) => {
 
   return (
     <div className="Details">
-      <Header />
+      <Header showBookMovieButton={false} baseUrl={props.baseUrl} loggedIn={props.loggedIn} setLoggedIn={props.setLoggedIn}/>
 
       <div className="confirmation marginTop16">
         <div>

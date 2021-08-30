@@ -9,7 +9,6 @@ import GridListTile from "@material-ui/core/GridListTile";
 import Grid from "@material-ui/core/Grid";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 import { Link } from 'react-router-dom';
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from '../../common/Header';
 
 const useStyles = makeStyles((theme) => ({
@@ -28,11 +27,13 @@ function changeColor(e) {
 }
 
 
-export default function Details() {
+export default function Details(props) {
+
   const classes = useStyles();
+
   return (
     <div>
-      <Header showBookMovieButton={true}/>
+      <Header showBookMovieButton={true} loggedIn={props.loggedIn} setLoggedIn={props.setLoggedIn}/>
       <div className="back"> 
         <Typography variant="body1" gutterBottom >
         <Link to="/"> {"< Back to Home"} </Link>
@@ -42,7 +43,7 @@ export default function Details() {
       </div>
       <div className="flex-container">
         <div className="flex-child-left">
-          <img src="https://collider.com/wp-content/uploads/inception-high-resolution-movie-poster-third.jpg" className="image" />
+          <img src="https://collider.com/wp-content/uploads/inception-high-resolution-movie-poster-third.jpg" alt="Movie Poster" className="image" />
         </div>
 
         <div className="flex-child-middle">

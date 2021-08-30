@@ -3,8 +3,8 @@ import GridListTileBar from "@material-ui/core/GridListTileBar";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import './Home.css';
-import FilterMovies from "./FilterMovies";
-import { Link, useHistory } from 'react-router-dom';
+import MovieFilter from "./MovieFilter";
+import { Link } from 'react-router-dom';
 
 var gridTileStyle = {
     height: '350px'
@@ -14,7 +14,7 @@ var gridStyle = {
     minHeight: '380px'
 }
 
-export default function FilteredMovies() {
+export default function FilteredMovies(props) {
     return (
 
         <div className="flex-container">
@@ -22,7 +22,7 @@ export default function FilteredMovies() {
 
 
                 <GridList cols={4} style={gridStyle}>
-                    <Link to="/movie/:id">
+                    <Link  to="/movie/:id">
                         <GridListTile key={0} style={gridTileStyle}>
 
                             <img
@@ -41,7 +41,7 @@ export default function FilteredMovies() {
             </div>
 
             <div className="right-child">
-                <FilterMovies />
+                <MovieFilter />
             </div>
         </div>
 

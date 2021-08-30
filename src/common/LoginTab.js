@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
 import './common.css';
 import Button from '@material-ui/core/Button';
-import { Link,useHistory } from 'react-router-dom';
+
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
-const onClickHandler = function () { }
 const onFormSubmitted = function () { }
 
 
-const LoginTab = function () {
+const LoginTab = function (props) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-
-    const history=useHistory();
 
     const usernameChangedHandler = function (e){        
         setUsername(e.target.value); 
@@ -59,7 +56,7 @@ const LoginTab = function () {
                 <br /><br />
 
                 <div className='center'>
-                <Button variant="contained" color="primary" type="submit" >
+                <Button variant="contained" color="primary" type="submit" onClick={() => props.onClickHandler(username, password)}>
                     LOGIN
                 </Button>
                 <br /><br />
