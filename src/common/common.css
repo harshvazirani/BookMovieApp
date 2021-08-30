@@ -1,0 +1,55 @@
+.header {
+    background-color: #222;
+    height: 36px;
+    padding-top: 8px;
+    padding-right: 32px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    text-align: center;
+}
+
+.logo {
+    background-color: #ff7f7f;
+    height: 35px;
+    float: left;
+    animation: mymove 8s infinite;
+    animation-timing-function: linear;
+}
+
+.button {
+    margin-right: 10px;
+    float: right;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5%;
+}
+
+.paddedtop{
+    padding-top: 2%;
+}
+
+.modal-width{
+    width: 30%;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.center-field{
+    margin: auto;
+}
+
+.center-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes mymove {
+    100% {
+        transform: rotateY(360deg);
+    }
+}
