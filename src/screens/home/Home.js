@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/styles";
 import { ImageListItemBar } from '@material-ui/core'
 import { ImageListItem } from '@material-ui/core'
@@ -17,14 +17,15 @@ const useStyles = makeStyles((theme) => ({
 
 
 const Home = function (props) {
-
+    const [title, setTitle] = useState("Inception");
+    const [poster_url, setPosterUrl] = useState("https://collider.com/wp-content/uploads/inception-high-resolution-movie-poster-third.jpg");
     const classes = useStyles();
 
     return (
         <div>
             <div>
-                <Header showBookMovieButton={false} baseUrl={props.baseUrl} loggedIn={props.loggedIn} setLoggedIn={props.setLoggedIn}/> 
-                </div>
+                <Header showBookMovieButton={false} baseUrl={props.baseUrl} loggedIn={props.loggedIn} setLoggedIn={props.setLoggedIn} />
+            </div>
             <div className="redheader">
                 <center><span className="heading"><strong>Upcoming Movies</strong></span></center>
             </div>
@@ -33,62 +34,62 @@ const Home = function (props) {
                     <ImageListItem key={0} className={classes.paper}>
                         <img
                             alt="actor"
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2q9tvih6sHPAEEbPoCRrWpf2IWVG5IOo5jIxqCA7dgrggsQO5"
+                            src={poster_url}
                             className={classes.paper}
                         />
-                        <ImageListItemBar title="Leonardo Di Caprio" />
+                        <ImageListItemBar title={title} />
                     </ImageListItem>
                     <ImageListItem key={1} className={classes.paper}>
                         <img
                             alt="actor"
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2q9tvih6sHPAEEbPoCRrWpf2IWVG5IOo5jIxqCA7dgrggsQO5"
+                            src={poster_url}
                             className={classes.paper}
                         />
-                        <ImageListItemBar title="Leonardo Di Caprio" />
+                        <ImageListItemBar title={title} />
                     </ImageListItem>
                     <ImageListItem key={2} className={classes.paper}>
                         <img
                             alt="actor"
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2q9tvih6sHPAEEbPoCRrWpf2IWVG5IOo5jIxqCA7dgrggsQO5"
+                            src={poster_url}
                             className={classes.paper}
                         />
-                        <ImageListItemBar title="Leonardo Di Caprio" />
+                        <ImageListItemBar title={title} />
                     </ImageListItem>
                     <ImageListItem key={3} className={classes.paper}>
                         <img
                             alt="actor"
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2q9tvih6sHPAEEbPoCRrWpf2IWVG5IOo5jIxqCA7dgrggsQO5"
+                            src={poster_url}
                             className={classes.paper}
                         />
-                        <ImageListItemBar title="Leonardo Di Caprio" />
+                        <ImageListItemBar title={title} />
                     </ImageListItem>
                     <ImageListItem key={4} className={classes.paper}>
                         <img
                             alt="actor"
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2q9tvih6sHPAEEbPoCRrWpf2IWVG5IOo5jIxqCA7dgrggsQO5"
+                            src={poster_url}
                             className={classes.paper}
                         />
-                        <ImageListItemBar title="Leonardo Di Caprio" />
+                        <ImageListItemBar title={title} />
                     </ImageListItem>
                     <ImageListItem key={5} className={classes.paper}>
                         <img
                             alt="actor"
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2q9tvih6sHPAEEbPoCRrWpf2IWVG5IOo5jIxqCA7dgrggsQO5"
+                            src={poster_url}
                             className={classes.paper}
                         />
-                        <ImageListItemBar title="Leonardo Di Caprio" />
+                        <ImageListItemBar title={title} />
                     </ImageListItem>
                     <ImageListItem key={6} className={classes.paper}>
                         <img
                             alt="actor"
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2q9tvih6sHPAEEbPoCRrWpf2IWVG5IOo5jIxqCA7dgrggsQO5"
+                            src={poster_url}
                             className={classes.paper}
                         />
-                        <ImageListItemBar title="Leonardo Di Caprio" />
+                        <ImageListItemBar title={title} />
                     </ImageListItem>
                 </div>
             </div>
-            <FilteredMovies/>
+            <FilteredMovies />
         </div>
     )
 }

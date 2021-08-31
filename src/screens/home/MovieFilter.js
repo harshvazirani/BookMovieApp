@@ -88,7 +88,7 @@ export default function MovieFilter() {
                     </div>
 
                     <div>
-                    <Autocomplete
+                        <Autocomplete
                             multiple
                             id="artists"
                             className={classes.component}

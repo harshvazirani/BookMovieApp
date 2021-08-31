@@ -48,12 +48,10 @@ const Header = function (props) {
             });
 
             const result = await rawResponse.json();
-            console.log(result.message);
 
             if (rawResponse.ok) {
                 window.sessionStorage.setItem('user-details', JSON.stringify(result));
                 window.sessionStorage.setItem('access-token', rawResponse.headers.get('access-token'));
-                console.log(result);
                 props.setLoggedIn(true);
                 closeModal();
             }
@@ -74,8 +72,6 @@ const Header = function (props) {
 
         try {
             const accessToken = window.sessionStorage.getItem('access-token');
-            console.log(accessToken);
-            console.log("fine");
             const rawResponse = await fetch(props.baseUrl + "auth/logout", {
                 method: 'POST',
                 headers: {
@@ -86,7 +82,6 @@ const Header = function (props) {
             });
 
             if (rawResponse.ok) {
-                console.log("Logging Out.....");
                 props.setLoggedIn(false);
                 window.location = "http://localhost:3000/";
             }

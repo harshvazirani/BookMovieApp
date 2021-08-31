@@ -1,4 +1,4 @@
-.back{
+.back {
     margin-left: 24px;
     margin-top: 8px;
     margin-bottom: 0px;
@@ -6,9 +6,16 @@
     cursor: pointer;
 }
 
-.image{
+a {
+    text-decoration: none;
+}
+
+.wiki_link {
+    text-decoration: underline;
+}
+
+.image {
     max-width: 95%;
-    
 }
 
 .flex-container {
@@ -17,36 +24,43 @@
 
 .flex-child-left {
     margin-left: 24px;
-    
     max-width: 20%;
-}  
+}
+
 .flex-child-middle {
     margin-left: 24px;
     margin-right: 24px;
-   
     max-width: 60%;
-}  
+}
 
 .flex-child-right {
     margin-left: 24px;
     max-width: 20%;
-    min-width: 15%;
-}  
+    min-width: 16%;
+}
 
-.trailer{
+.trailer {
     width: 420;
     height: 315;
 }
 
 .star:hover {
     fill: yellow;
-  }
-  
-  .artists {
+}
+
+.artists {
     margin-top: 16px;
     margin-bottom: 16px;
-  }
+}
 
-  .video {
-      margin-top: 16px;
-  }
+.artists-grid {
+    margin-left: 0px !important;
+}
+
+.video {
+    margin-top: 16px;
+}
+
+.plot {
+    margin-top: 16px;
+}

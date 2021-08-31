@@ -21,28 +21,28 @@
     float: right;
 }
 
-.center{
+.center {
     display: flex;
     justify-content: center;
     align-items: center;
     padding-bottom: 5%;
 }
 
-.paddedtop{
+.paddedtop {
     padding-top: 2%;
 }
 
-.modal-width{
+.modal-width {
     width: 30%;
     margin: auto;
     margin-top: 5%;
 }
 
-.center-field{
+.center-field {
     margin: auto;
 }
 
-.center-div{
+.center-div {
     display: flex;
     justify-content: center;
     align-items: center;

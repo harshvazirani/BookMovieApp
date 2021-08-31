@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ImageListItemBar } from '@material-ui/core'
 import { ImageListItem } from '@material-ui/core'
 import { ImageList } from '@material-ui/core'
@@ -15,29 +15,26 @@ var gridStyle = {
 }
 
 export default function FilteredMovies(props) {
+    const [title, setTitle] = useState("Inception");
+    const [poster_url, setPosterUrl] = useState("https://collider.com/wp-content/uploads/inception-high-resolution-movie-poster-third.jpg");
+
     return (
 
         <div className="flex-container">
             <div className="left-child">
-
-
                 <ImageList cols={4} style={gridStyle}>
-                    <Link  to="/movie/:id">
-                        <ImageListItem key={0} style={gridTileStyle}>
 
+                    <Link to="/movie/:id">
+                        <ImageListItem key={0} style={gridTileStyle}>
                             <img
                                 alt="actor"
-                                src="https://collider.com/wp-content/uploads/inception-high-resolution-movie-poster-third.jpg"
+                                src={poster_url}
                             />
-
-                            <ImageListItemBar title="Inception" />
-
+                            <ImageListItemBar title={title} />
                         </ImageListItem>
                     </Link>
-                    
+
                 </ImageList>
-
-
             </div>
 
             <div className="right-child">
