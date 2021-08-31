@@ -5,7 +5,8 @@ import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 const onFormSubmitted = function () { }
 
-
+//The Login Tab of the Modal.
+//The onClickHandler of the Login Button on the modal is defined as login function in Header.js and passed to this function as a prop.
 const LoginTab = function (props) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");

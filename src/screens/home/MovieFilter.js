@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../common/common.css';
 import { makeStyles } from '@material-ui/core/styles/';
 import Card from "@material-ui/core/Card";
@@ -16,24 +16,26 @@ import CheckBoxIcon from '@material-ui/icons/CheckBox';
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
-const currencies = [
+const dummyartists = [
     {
-        value: 'USD',
-        label: '$',
+        firstname: 'Christopher',
+        lastname: 'Nolan'
     },
     {
-        value: 'EUR',
-        label: '€',
+        firstname: 'Leonardo',
+        lastname: 'Di Caprio'
     },
     {
-        value: 'BTC',
-        label: '฿',
+        firstname: 'Joseph',
+        lastname: 'Gordon-Levitt'
     },
     {
-        value: 'JPY',
-        label: '¥',
+        firstname: 'Tom',
+        lastname: 'Hardy'
     },
 ];
+
+const dummygenres = ['Horror', 'Comedy', 'Romance', 'Drama'];
 
 const useStyles = makeStyles((theme) => ({
     heading: {
@@ -46,8 +48,11 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function MovieFilter() {
 
+// This is the Material UI Card Component that is used to filter the Movies.
+export default function MovieFilter(props) {
+    const [genres, ] = useState(dummygenres);
+    const [artists, ] = useState(dummyartists);
     const classes = useStyles();
 
     return (
@@ -66,9 +71,9 @@ export default function MovieFilter() {
                             multiple
                             id="genres"
                             className={classes.component}
-                            options={currencies}
+                            options={genres}
                             disableCloseOnSelect
-                            getOptionLabel={(option) => option.value}
+                            getOptionLabel={(option) => option}
                             renderOption={(option, { selected }) => (
                                 <React.Fragment>
                                     <Checkbox
@@ -77,7 +82,7 @@ export default function MovieFilter() {
                                         style={{ marginRight: 8 }}
                                         checked={selected}
                                     />
-                                    {option.value}
+                                    {option}
                                 </React.Fragment>
                             )}
                             style={{ width: 500 }}
@@ -92,9 +97,9 @@ export default function MovieFilter() {
                             multiple
                             id="artists"
                             className={classes.component}
-                            options={currencies}
+                            options={artists}
                             disableCloseOnSelect
-                            getOptionLabel={(option) => option.value}
+                            getOptionLabel={(option) => (option.firstname + " " + option.lastname)}
                             renderOption={(option, { selected }) => (
                                 <React.Fragment>
                                     <Checkbox
@@ -103,7 +108,7 @@ export default function MovieFilter() {
                                         style={{ marginRight: 8 }}
                                         checked={selected}
                                     />
-                                    {option.value}
+                                    {`${option.firstname} ${option.lastname}`}
                                 </React.Fragment>
                             )}
                             style={{ width: 500 }}

@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import Typography from '@material-ui/core/typography';
 
-
+//The Login Tab of the Modal.
 const RegisterTab = function (props) {
     const [firstname, setFirstname] = useState("");
     const [lastname, setLastname] = useState("");
@@ -36,7 +36,7 @@ const RegisterTab = function (props) {
 
     function formSubmit() { }
 
-
+    //AJAX call to backend server for signup. Implemented.
     async function onFormSubmitted() {
 
         var details = {

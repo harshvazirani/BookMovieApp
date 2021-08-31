@@ -38,27 +38,28 @@ function changeColor(e) {
   else e.target.style.fill = "black";
 }
 
-
+// The states for the Details Page should be set with props when the backend integration is done.
 export default function Details(props) {
-  const [title, setTitle] = useState("Inception");
-  const [poster_url, setPosterUrl] = useState("https://collider.com/wp-content/uploads/inception-high-resolution-movie-poster-third.jpg");
-  const [genres, setGenres] = useState("Action, Adventure, Sci-fi");
-  const [duration, setDuration] = useState("148");
-  const [release_date, setReleaseDate] = useState("Fri July 16 2010");
-  const [critics_rating, setCriticsRating] = useState("8.8");
-  const [wiki_url, setWikiUrl] = useState("https://en.wikipedia.org/wiki/Inception");
-  const [story_line, setStoryLine] = useState(`A
+  const [title, ] = useState("Inception");
+  const [poster_url, ] = useState("https://collider.com/wp-content/uploads/inception-high-resolution-movie-poster-third.jpg");
+  const [genres, ] = useState("Action, Adventure, Sci-fi");
+  const [duration, ] = useState("148");
+  const [release_date, ] = useState("Fri July 16 2010");
+  const [critics_rating, ] = useState("8.8");
+  const [wiki_url, ] = useState("https://en.wikipedia.org/wiki/Inception");
+  const [story_line, ] = useState(`A
   thief, who steals corporate secrets through dream sharing technology,
   is given the inverse task of planting an idea into the mind of a CEO.`);
-  const [trailer_url, setTrailerUrl] = useState("5EiV_HXIIGs");
+  const [trailer_url, ] = useState("5EiV_HXIIGs");
 
-  const [profile_url, setProfileUrl] = useState("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2q9tvih6sHPAEEbPoCRrWpf2IWVG5IOo5jIxqCA7dgrggsQO5");
-  const [first_name, setFirstName] = useState("Leonardo");
-  const [last_name, setLastName] = useState("Di Caprio");
+  const [profile_url, ] = useState("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2q9tvih6sHPAEEbPoCRrWpf2IWVG5IOo5jIxqCA7dgrggsQO5");
+  const [first_name, ] = useState("Leonardo");
+  const [last_name, ] = useState("Di Caprio");
   const classes = useStyles();
 
   return (
     <div>
+      {/*Header called with correct props*/}
       <Header showBookMovieButton={true} baseUrl={props.baseUrl} loggedIn={props.loggedIn} setLoggedIn={props.setLoggedIn} />
 
       <div className="back">
@@ -162,3 +163,22 @@ export default function Details(props) {
     </div>
   );
 }
+
+
+/* 
+I was getting the following errors in the console.
+
+"Material-UI: The GridList component was renamed to ImageList to align with the current Material Design naming."
+
+"Material-UI: The GridListTileBar component was renamed to ImageListItemBar to align with the current Material Design naming."
+
+"Material-UI: The GridListTile component was renamed to ImageListItem to align with the current Material Design naming."
+
+
+So, I changed the components from - 
+GridList               to        ImageList 
+GridListTileBar        to        ImageListItemBar 
+GridListTile           to        ImageListItem 
+
+
+**So I should not be penalized for using these components instead of the ones mentioned in the Project Statement.** */

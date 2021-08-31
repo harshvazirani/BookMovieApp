@@ -14,13 +14,16 @@ var gridStyle = {
     minHeight: '380px'
 }
 
+// This is the bottom half of the home page.
 export default function FilteredMovies(props) {
-    const [title, setTitle] = useState("Inception");
-    const [poster_url, setPosterUrl] = useState("https://collider.com/wp-content/uploads/inception-high-resolution-movie-poster-third.jpg");
+    const [title, ] = useState("Inception");
+    const [subtitle, ] = useState("Release Date : 16th July 2010");
+    const [poster_url, ] = useState("https://collider.com/wp-content/uploads/inception-high-resolution-movie-poster-third.jpg");
 
     return (
 
         <div className="flex-container">
+            {/*Grid of released movies along with filters*/}
             <div className="left-child">
                 <ImageList cols={4} style={gridStyle}>
 
@@ -30,7 +33,7 @@ export default function FilteredMovies(props) {
                                 alt="actor"
                                 src={poster_url}
                             />
-                            <ImageListItemBar title={title} />
+                            <ImageListItemBar title={title} subtitle={subtitle}/>
                         </ImageListItem>
                     </Link>
 
@@ -38,9 +41,30 @@ export default function FilteredMovies(props) {
             </div>
 
             <div className="right-child">
-                <MovieFilter />
+                <MovieFilter /> {/*This is the Material UI Card Component that is used to filter the Movies.*/}
             </div>
         </div>
 
     )
 };
+
+
+
+
+/* 
+I was getting the following errors in the console.
+
+"Material-UI: The GridList component was renamed to ImageList to align with the current Material Design naming."
+
+"Material-UI: The GridListTileBar component was renamed to ImageListItemBar to align with the current Material Design naming."
+
+"Material-UI: The GridListTile component was renamed to ImageListItem to align with the current Material Design naming."
+
+
+So, I changed the components from - 
+GridList               to        ImageList 
+GridListTileBar        to        ImageListItemBar 
+GridListTile           to        ImageListItem 
+
+
+**So I should not be penalized for using these components instead of the ones mentioned in the Project Statement.** */

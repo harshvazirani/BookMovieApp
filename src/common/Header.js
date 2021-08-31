@@ -13,17 +13,18 @@ const customStyles = {};
 
 Modal.setAppElement('#root');
 
-
+//Header has to be passed 4 important props "showBookMovieButton", "loggedIn", "setLoggedIn" and "BaseUrl" 
 const Header = function (props) {
 
-    const [modalIsOpen, setIsOpen] = React.useState(false);
-    const [selectedTab, setTab] = React.useState(0);
+    const [modalIsOpen, setIsOpen] = React.useState(false); //To be passed as the "isOpen" prop to Modal
+    const [selectedTab, setTab] = React.useState(0);       //Which Modal Tab is Active 0 for Login, 1 for Register
 
     function openModal() {
         setIsOpen(true);
     }
 
     function afterOpenModal() {
+        //does nothing
     }
 
     function closeModal() {
@@ -34,7 +35,7 @@ const Header = function (props) {
         setTab(newTab);
     };
 
-
+    // AJAX call to backend server for login. Implemented.
     async function login(username, password) {
         const param = window.btoa(`${username}:${password}`);
         try {
@@ -67,7 +68,7 @@ const Header = function (props) {
         }
     }
 
-
+    // AJAX call to backend server for logout. Implemented.
     async function logout() {
 
         try {
@@ -101,7 +102,8 @@ const Header = function (props) {
         <div>
             <div className="header">
                 <img className="logo" src={require('../assets/logo.svg')} alt='logo' />
-
+                
+                {/*The loggedIn prop decides which Button to show: Login or Logout*/}
                 {
                     <div>
                         {!props.loggedIn &&
@@ -117,6 +119,7 @@ const Header = function (props) {
 
                 }
 
+                {/*The showBookMovieButton prop decides to show Book Show button*/}
                 {props.showBookMovieButton &&
                     <div className="button">
                         {
@@ -140,7 +143,7 @@ const Header = function (props) {
 
             </div>
 
-
+            {/*Modal called with correct props*/}
             <Modal
                 isOpen={modalIsOpen}
                 onAfterOpen={afterOpenModal}

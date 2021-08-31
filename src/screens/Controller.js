@@ -5,8 +5,10 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import BookShow from "./bookshow/BookShow";
 import Confirmation from "./confirmation/Confirmation";
 
+//Login State is maintained in Controlled and passed on to other components as props along with the function to modify the state.
 class Controller extends Component {
-
+    
+    //The base URL for backend 
     baseUrl = "/api/v1/";
 
     constructor() {
