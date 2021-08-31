@@ -33,7 +33,7 @@ export default function Details(props) {
 
   return (
     <div>
-      <Header showBookMovieButton={true} loggedIn={props.loggedIn} setLoggedIn={props.setLoggedIn}/>
+      <Header showBookMovieButton={true} baseUrl={props.baseUrl} loggedIn={props.loggedIn} setLoggedIn={props.setLoggedIn}/>
       <div className="back"> 
         <Typography variant="body1" gutterBottom >
         <Link to="/"> {"< Back to Home"} </Link>

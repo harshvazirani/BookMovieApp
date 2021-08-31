@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './common.css';
 import Modal from 'react-modal';
 import Button from '@material-ui/core/Button';
@@ -18,8 +18,6 @@ const Header = function (props) {
 
     const [modalIsOpen, setIsOpen] = React.useState(false);
     const [selectedTab, setTab] = React.useState(0);
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
 
     function openModal() {
         setIsOpen(true);
@@ -50,12 +48,13 @@ const Header = function (props) {
             });
 
             const result = await rawResponse.json();
+            console.log(result.message);
 
             if (rawResponse.ok) {
+                window.sessionStorage.setItem('user-details', JSON.stringify(result));
+                window.sessionStorage.setItem('access-token', rawResponse.headers.get('access-token'));
                 console.log(result);
                 props.setLoggedIn(true);
-                setUsername(username);
-                setPassword(password);
                 closeModal();
             }
 
@@ -71,14 +70,36 @@ const Header = function (props) {
     }
 
 
-    function logout() {
+    async function logout() {
 
+        try {
+            const accessToken = window.sessionStorage.getItem('access-token');
+            console.log(accessToken);
+            console.log("fine");
+            const rawResponse = await fetch(props.baseUrl + "auth/logout", {
+                method: 'POST',
+                headers: {
+                    "Accept": "*/*",
+                    "Content-Type": "application/json;charset=UTF-8",
+                    authorization: `Bearer ${accessToken}`
+                }
+            });
+
+            if (rawResponse.ok) {
                 console.log("Logging Out.....");
                 props.setLoggedIn(false);
-                setUsername("");
-                setPassword("");
-                
                 window.location = "http://localhost:3000/";
+            }
+
+            else {
+                const error = new Error();
+                error.message = 'Something went wrong.';
+            }
+        }
+
+        catch (e) {
+            alert(`Error: ${e.message}`);
+        }
     }
 
     return (

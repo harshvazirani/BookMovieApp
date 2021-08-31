@@ -5,11 +5,10 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import BookShow from "./bookshow/BookShow";
 import Confirmation from "./confirmation/Confirmation";
 
-const baseUrl = "/api/v1/";
-
 class Controller extends Component {
     
-    
+    baseUrl = "/api/v1/";
+
     constructor(){
     super();    
     this.state = {loggedIn: false};
@@ -28,22 +27,22 @@ class Controller extends Component {
                 <Route
                     exact
                     path="/"
-                    render={(props) => <Home {...props} baseUrl={baseUrl} 
+                    render={(props) => <Home {...props} baseUrl={this.baseUrl} 
                     setLoggedIn={this.setLoggedIn.bind(this)} loggedIn={this.state.loggedIn} />}
                 />
                 <Route
                     path="/movie/:id"
-                    render={(props) => <Details {...props} baseUrl={baseUrl}
+                    render={(props) => <Details {...props} baseUrl={this.baseUrl}
                     setLoggedIn={this.setLoggedIn.bind(this)} loggedIn={this.state.loggedIn} />}
                 />
                 <Route
                     path="/bookshow/:id"
-                    render={(props) => <BookShow {...props} baseUrl={baseUrl}
+                    render={(props) => <BookShow {...props} baseUrl={this.baseUrl}
                     setLoggedIn={this.setLoggedIn.bind(this)} loggedIn={this.state.loggedIn} />}
                 />
                 <Route
                     path="/confirm/:id"
-                    render={(props) => <Confirmation {...props} baseUrl={baseUrl} 
+                    render={(props) => <Confirmation {...props} baseUrl={this.baseUrl} 
                     setLoggedIn={this.setLoggedIn.bind(this)} loggedIn={this.state.loggedIn} />}
                 />
             </div>
