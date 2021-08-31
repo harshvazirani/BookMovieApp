@@ -1,7 +1,7 @@
 import React from "react";
-import GridListTileBar from "@material-ui/core/GridListTileBar";
-import GridList from "@material-ui/core/GridList";
-import GridListTile from "@material-ui/core/GridListTile";
+import { ImageListItemBar } from '@material-ui/core'
+import { ImageListItem } from '@material-ui/core'
+import { ImageList } from '@material-ui/core'
 import './Home.css';
 import MovieFilter from "./MovieFilter";
 import { Link } from 'react-router-dom';
@@ -21,21 +21,21 @@ export default function FilteredMovies(props) {
             <div className="left-child">
 
 
-                <GridList cols={4} style={gridStyle}>
+                <ImageList cols={4} style={gridStyle}>
                     <Link  to="/movie/:id">
-                        <GridListTile key={0} style={gridTileStyle}>
+                        <ImageListItem key={0} style={gridTileStyle}>
 
                             <img
                                 alt="actor"
                                 src="https://collider.com/wp-content/uploads/inception-high-resolution-movie-poster-third.jpg"
                             />
 
-                            <GridListTileBar title="Inception" />
+                            <ImageListItemBar title="Inception" />
 
-                        </GridListTile>
+                        </ImageListItem>
                     </Link>
                     
-                </GridList>
+                </ImageList>
 
 
             </div>

@@ -111,8 +111,8 @@ const Confirmation = (props) => {
 
           <Card className="cardStyle">
             <CardContent>
-              <Typography variant="headline" component="h2">
-                SUMMARY
+              <Typography variant="h4" component="h2">
+                <strong>SUMMARY</strong>
               </Typography>
               <br />
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import YouTube from 'react-youtube';
+import './Details.css';
 
 function onReady(e) {
     e.target.pauseVideo();
@@ -14,7 +15,7 @@ const Trailer = function(props) {
         autoplay: 1,
       },
     };
-    return <YouTube videoId={props.id} opts={opts} onReady={onReady}/>;
+    return <YouTube videoId={props.id} opts={opts} onReady={onReady} className="video"/>;
   }
 
   export default Trailer;

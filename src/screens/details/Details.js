@@ -3,9 +3,9 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import './Details.css';
 import Trailer from './Trailer.js';
-import GridListTileBar from "@material-ui/core/GridListTileBar";
-import GridList from "@material-ui/core/GridList";
-import GridListTile from "@material-ui/core/GridListTile";
+import { ImageListItemBar } from '@material-ui/core'
+import { ImageListItem } from '@material-ui/core'
+import { ImageList } from '@material-ui/core'
 import Grid from "@material-ui/core/Grid";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 import { Link } from 'react-router-dom';
@@ -37,7 +37,6 @@ export default function Details(props) {
       <div className="back"> 
         <Typography variant="body1" gutterBottom >
         <Link to="/"> {"< Back to Home"} </Link>
-          
         </Typography>
        
       </div>
@@ -47,7 +46,7 @@ export default function Details(props) {
         </div>
 
         <div className="flex-child-middle">
-          <Typography variant="headline" component="h2" gutterBottom>
+          <Typography variant="h4" component="h2" gutterBottom>
             Inception
           </Typography>
 
@@ -84,15 +83,13 @@ export default function Details(props) {
           <br />
           <Typography variant="body2" gutterBottom>
             <strong>Trailer : </strong>
-            <div>
-              <Trailer id="5EiV_HXIIGs" />
-            </div>
           </Typography>
+          <Trailer id="5EiV_HXIIGs" />
         </div>
 
         <div className="flex-child-right">
 
-          <div container className={classes.root}>
+          <div className={classes.root}>
             <Typography>
               <strong>Rate this movie:</strong>
             </Typography>
@@ -107,26 +104,26 @@ export default function Details(props) {
             <br />
             <Grid container className={classes.root} spacing={2}>
 
-              <GridList cols={2}>
-                <GridListTile key={0} className={classes.paper}>
+              <ImageList cols={2}>
+                <ImageListItem key={0} className={classes.paper}>
 
                   <img
                     alt="actor"
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2q9tvih6sHPAEEbPoCRrWpf2IWVG5IOo5jIxqCA7dgrggsQO5"
                     className={classes.paper}
                   />
-                  <GridListTileBar title="Leonardo Di Caprio" />
-                </GridListTile>
+                  <ImageListItemBar title="Leonardo Di Caprio" />
+                </ImageListItem>
 
-                <GridListTile key={1} className={classes.paper}>
+                <ImageListItem key={1} className={classes.paper}>
                   <img
                     alt="actor"
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2q9tvih6sHPAEEbPoCRrWpf2IWVG5IOo5jIxqCA7dgrggsQO5"
                     className={classes.paper}
                   />
-                  <GridListTileBar title="Leonardo Di Caprio" />
-                </GridListTile>
-              </GridList>
+                  <ImageListItemBar title="Leonardo Di Caprio" />
+                </ImageListItem>
+              </ImageList>
 
             </Grid>
           </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
-import GridListTileBar from "@material-ui/core/GridListTileBar";
-import GridListTile from "@material-ui/core/GridListTile";
+import { ImageListItemBar } from '@material-ui/core'
+import { ImageListItem } from '@material-ui/core'
 import './Home.css';
 import Header from '../../common/Header';
 import FilteredMovies from "./FilteredMovies";
@@ -30,62 +30,62 @@ const Home = function (props) {
             </div>
             <div className="movielist">
                 <div className="grid">
-                    <GridListTile key={0} className={classes.paper}>
+                    <ImageListItem key={0} className={classes.paper}>
                         <img
                             alt="actor"
                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2q9tvih6sHPAEEbPoCRrWpf2IWVG5IOo5jIxqCA7dgrggsQO5"
                             className={classes.paper}
                         />
-                        <GridListTileBar title="Leonardo Di Caprio" />
-                    </GridListTile>
-                    <GridListTile key={1} className={classes.paper}>
+                        <ImageListItemBar title="Leonardo Di Caprio" />
+                    </ImageListItem>
+                    <ImageListItem key={1} className={classes.paper}>
                         <img
                             alt="actor"
                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2q9tvih6sHPAEEbPoCRrWpf2IWVG5IOo5jIxqCA7dgrggsQO5"
                             className={classes.paper}
                         />
-                        <GridListTileBar title="Leonardo Di Caprio" />
-                    </GridListTile>
-                    <GridListTile key={2} className={classes.paper}>
+                        <ImageListItemBar title="Leonardo Di Caprio" />
+                    </ImageListItem>
+                    <ImageListItem key={2} className={classes.paper}>
                         <img
                             alt="actor"
                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2q9tvih6sHPAEEbPoCRrWpf2IWVG5IOo5jIxqCA7dgrggsQO5"
                             className={classes.paper}
                         />
-                        <GridListTileBar title="Leonardo Di Caprio" />
-                    </GridListTile>
-                    <GridListTile key={3} className={classes.paper}>
+                        <ImageListItemBar title="Leonardo Di Caprio" />
+                    </ImageListItem>
+                    <ImageListItem key={3} className={classes.paper}>
                         <img
                             alt="actor"
                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2q9tvih6sHPAEEbPoCRrWpf2IWVG5IOo5jIxqCA7dgrggsQO5"
                             className={classes.paper}
                         />
-                        <GridListTileBar title="Leonardo Di Caprio" />
-                    </GridListTile>
-                    <GridListTile key={4} className={classes.paper}>
+                        <ImageListItemBar title="Leonardo Di Caprio" />
+                    </ImageListItem>
+                    <ImageListItem key={4} className={classes.paper}>
                         <img
                             alt="actor"
                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2q9tvih6sHPAEEbPoCRrWpf2IWVG5IOo5jIxqCA7dgrggsQO5"
                             className={classes.paper}
                         />
-                        <GridListTileBar title="Leonardo Di Caprio" />
-                    </GridListTile>
-                    <GridListTile key={5} className={classes.paper}>
+                        <ImageListItemBar title="Leonardo Di Caprio" />
+                    </ImageListItem>
+                    <ImageListItem key={5} className={classes.paper}>
                         <img
                             alt="actor"
                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2q9tvih6sHPAEEbPoCRrWpf2IWVG5IOo5jIxqCA7dgrggsQO5"
                             className={classes.paper}
                         />
-                        <GridListTileBar title="Leonardo Di Caprio" />
-                    </GridListTile>
-                    <GridListTile key={6} className={classes.paper}>
+                        <ImageListItemBar title="Leonardo Di Caprio" />
+                    </ImageListItem>
+                    <ImageListItem key={6} className={classes.paper}>
                         <img
                             alt="actor"
                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2q9tvih6sHPAEEbPoCRrWpf2IWVG5IOo5jIxqCA7dgrggsQO5"
                             className={classes.paper}
                         />
-                        <GridListTileBar title="Leonardo Di Caprio" />
-                    </GridListTile>
+                        <ImageListItemBar title="Leonardo Di Caprio" />
+                    </ImageListItem>
                 </div>
             </div>
             <FilteredMovies/>

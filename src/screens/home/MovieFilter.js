@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.primary.light
     },
     component: {
-        margin: theme.spacing.unit,
+        margin: theme.spacing(1),
         maxWidth: 240,
         minWidth: 240
     }
@@ -119,7 +119,6 @@ export default function MovieFilter() {
                                 id="date"
                                 label="Release Date Start"
                                 type="date"
-                                defaultValue="yyyy-MM-dd"
                                 className={classes.textField}
                                 InputLabelProps={{
                                     shrink: true,
@@ -133,7 +132,6 @@ export default function MovieFilter() {
                                 id="date"
                                 label="Release Date End"
                                 type="date"
-                                defaultValue="yyyy-MM-dd"
                                 className={classes.textField}
                                 InputLabelProps={{
                                     shrink: true,

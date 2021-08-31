@@ -203,8 +203,8 @@ const BookShow = (props) => {
 
         <Card className="cardStyle">
           <CardContent>
-            <Typography variant="headline" component="h2">
-              BOOK SHOW
+            <Typography variant="h4" component="h2">
+              <strong>BOOK SHOW</strong>
             </Typography>
             <br />
 
